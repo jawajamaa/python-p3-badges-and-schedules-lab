@@ -1,17 +1,20 @@
 def badge_maker(name): 
     return (f"Hello, my name is {name}.") 
 
-# print(badge_maker("Bob"))
+print(badge_maker("Bob"))
 
 names = ["Arel", "Carol"]
 
 def batch_badge_creator(names):
-    name_badges = []
-    for name in names:
-        name_badges.append(f"Hello, my name is {name}.")
-    return name_badges
+     return [(f"Hello, my name is {name}.") for name in names]
 
-# print(batch_badge_creator(names))
+    # name_badges = []
+    # for name in names:
+    #     name_badges.append(f"Hello, my name is {name}.")
+    # return name_badges
+#above 4 lines work and pass tests, but the list comprehension is best solution 
+
+print(batch_badge_creator(names))
 
 def assign_rooms(names):
     room_assignments = []
@@ -20,15 +23,19 @@ def assign_rooms(names):
             index += 1
     return room_assignments
 
-# print(assign_rooms(names))
+print(assign_rooms(names))
 
 def printer(names):
-    # print(batch_badge_creator(names))
-    for badge in batch_badge_creator(names):
-        print(badge)
-    # print(assign_rooms(names))
-    for room in assign_rooms(names):
-        print(room)
-    # return None
+    [print(badge) for badge in batch_badge_creator(names)]
+    [print(room) for room in assign_rooms(names)]
+
+    # for badge in batch_badge_creator(names): 
+        # print(badge)
+    # for room in assign_rooms(names):
+        # print(room)
+    # 4 lines above work properly and pass tests, though top two list comprehensions are most succinct
+
+    # print(batch_badge_creator(names)) creates list; doesnt iterate through
+    # print(assign_rooms(names)) creates list; doesnt iterate through
 
 printer(names)
